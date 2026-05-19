@@ -3,25 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Cineplay Player</title>
+<title>Player</title>
 
 <style>
-
 html,body{
   margin:0;
-  width:100%;
   height:100%;
-  background:#000;
-  overflow:hidden;
+  background:black;
 }
 
 iframe{
   width:100%;
-  height:100vh;
+  height:100%;
   border:none;
 }
-
 </style>
 </head>
 
@@ -30,16 +25,10 @@ iframe{
 <iframe id="player" allowfullscreen></iframe>
 
 <script>
-
-const params =
-new URLSearchParams(window.location.search);
-
+const params = new URLSearchParams(window.location.search);
 const url = params.get('url');
 
-document
-.getElementById('player')
-.src = decodeURIComponent(url);
-
+document.getElementById('player').src = decodeURIComponent(url);
 </script>
 
 </body>
