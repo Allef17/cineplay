@@ -7,78 +7,54 @@
 
 <style>
 
-body{margin:0;background:#0B0B0B;color:#fff;font-family:Arial}
-
-/* SPLASH */
-#splash{
-  position:fixed;inset:0;
-  background:#000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-  animation:fade 1s ease forwards;
-  animation-delay:2.5s;
+body{
+  margin:0;
+  background:#0B0B0B;
+  color:white;
+  font-family:Arial;
 }
 
-#splash h1{
-  color:#E50914;
-  font-size:60px;
-  font-weight:900;
-  animation:zoom 2s ease;
-}
-
-@keyframes zoom{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
-@keyframes fade{to{opacity:0;visibility:hidden}}
-
-/* HEADER */
 header{
-  position:fixed;
-  top:0;
-  width:100%;
+  padding:20px;
+  color:#E50914;
+  font-size:24px;
+  font-weight:900;
+}
+
+.title{
+  margin:20px;
+}
+
+.row{
   display:flex;
-  justify-content:space-between;
-  padding:20px 40px;
+  gap:10px;
+  overflow-x:auto;
+  padding:10px 20px;
 }
 
-.logo{color:#E50914;font-weight:900}
+.row::-webkit-scrollbar{display:none}
 
-/* HERO */
-.hero{height:65vh;position:relative}
-
-.hero img{
-  width:100%;height:100%;object-fit:cover;filter:brightness(.5)
+.card{
+  min-width:160px;
+  height:240px;
+  cursor:pointer;
 }
 
-/* CARDS */
-main{padding:120px 40px 40px}
-
-.cards{display:flex;gap:12px;overflow-x:auto}
-.cards::-webkit-scrollbar{display:none}
-
-.card{min-width:180px;height:260px;cursor:pointer}
-.card img{width:100%;height:100%;object-fit:cover}
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:8px;
+}
 
 </style>
 </head>
 
 <body>
 
-<div id="splash"><h1>CINEPLAY</h1></div>
+<header>CINEPLAY</header>
 
-<audio id="introSound">
-  <source src="https://cdn.pixabay.com/download/audio/2023/03/15/audio_7b1c0d3b7c.mp3">
-</audio>
-
-<header>
-  <div class="logo">CINEPLAY</div>
-</header>
-
-<section class="hero" id="hero"></section>
-
-<main>
-  <div id="list"></div>
-</main>
+<div id="app"></div>
 
 <script src="./js/app.js"></script>
 
