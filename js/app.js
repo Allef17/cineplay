@@ -1,41 +1,74 @@
 let DATA = [];
+let currentTab = "home";
+let searchValue = "";
 
-async function init(){
-
-  DATA = await fetch('./content/movies.json').then(r=>r.json());
-
-  renderHome();
+async function init() {
+  DATA = await fetch('./content/movies.json').then(r => r.json());
+  render();
 }
 
-function renderHome(){
+/* ===== ABAS ===== */
+function setTab(tab) {
+  currentTab = tab;
+  render();
+}
 
-  const container = document.getElementById("app");
+/* ===== BUSCA ===== */
+function search() {
+  searchValue = document.getElementById("search").value.toLowerCase();
+  render();
+}
 
-  const movies = DATA.filter(i=>i.type==="movie");
+/* ===== RENDER PRINCIPAL ===== */
+function render() {
+  let list = DATA;
 
-  container.innerHTML = `
-    <h2 class="title">Filmes</h2>
+  // FILTRO POR ABA
+  if (currentTab !== "home") {
+    list = list.filter(i => i.type === currentTab);
+  }
+
+  // FILTRO POR BUSCA
+  if (searchValue) {
+    list = list.filter(i =>
+      i.title.toLowerCase().includes(searchValue)
+    );
+  }
+
+  const app = document.getElementById("app");
+
+  if (!list.length) {
+    app.innerHTML = `<p style="padding:20px">Nada encontrado</p>`;
+    return;
+  }
+
+  app.innerHTML = `
     <div class="row">
-      ${movies.map(m=>card(m)).join("")}
-    </div>
-
-    <h2 class="title">Séries</h2>
-    <div class="row">
-      ${DATA.filter(i=>i.type==="serie").map(m=>card(m)).join("")}
+      ${list.map(item => card(item)).join("")}
     </div>
   `;
 }
 
-function card(item){
+/* ===== CARD (COM NOME + IMAGEM) ===== */
+function card(item) {
   return `
     <div class="card" onclick="openDetails('${item.id}')">
-      <img src="${item.poster}">
+      <img src="${item.poster}" alt="${item.title}">
+      <div style="
+        font-size:12px;
+        margin-top:5px;
+        text-align:center;
+        color:#fff;
+      ">
+        ${item.title}
+      </div>
     </div>
   `;
 }
 
-function openDetails(id){
-  window.location.href = "serie.html?id="+id;
+/* ===== ABRIR DETALHES ===== */
+function openDetails(id) {
+  window.location.href = "serie.html?id=" + id;
 }
 
 init();
