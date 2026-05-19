@@ -1,32 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Player</title>
-
 <style>
-html,body{
-  margin:0;
-  height:100%;
-  background:black;
-}
-
-iframe{
-  width:100%;
-  height:100%;
-  border:none;
-}
+html,body{margin:0;height:100%;background:black}
+iframe{width:100%;height:100%;border:none}
 </style>
 </head>
-
 <body>
 
-<iframe id="player"></iframe>
+<iframe id="p"></iframe>
 
 <script>
-const url = new URLSearchParams(window.location.search).get('url');
-document.getElementById('player').src = decodeURIComponent(url);
+const url = new URLSearchParams(location.search).get("url");
+document.getElementById("p").src = decodeURIComponent(url);
 </script>
 
 </body>
