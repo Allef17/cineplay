@@ -4,27 +4,41 @@ async function loadMovies(){
 
   const movies = await response.json();
 
-  console.log(movies);
+  const cardsContainers = document.querySelectorAll('.cards');
 
-  const container = document.querySelector('.content-grid');
+  if(cardsContainers[0]){
 
-  container.innerHTML = '';
+    cardsContainers[0].innerHTML = '';
 
-  movies.forEach(movie => {
+    movies.forEach(movie => {
 
-    container.innerHTML += `
+      cardsContainers[0].innerHTML += `
 
-      <div class="card">
+        <div class="card">
 
-        <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg">
+          <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg">
 
-        <h3>${movie.title}</h3>
+          <div class="card-overlay"></div>
 
-      </div>
+          <div class="card-info">
 
-    `;
+            <div class="card-title">
+              ${movie.title}
+            </div>
 
-  });
+            <div class="card-meta">
+              ${movie.year} • ${movie.genre}
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    });
+
+  }
 
 }
 
