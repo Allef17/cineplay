@@ -4,25 +4,45 @@ let query = "";
 
 /* INICIAL */
 window.onload = async () => {
-  try {
-    DATA = await base44.entities.Movie.list();
-  } catch (e) {
-    console.log("Base44 não carregado, usando mock");
-
-    DATA = [
-      {
-        id:"1",
-        title:"Homem-Aranha",
-        categories:["movie"],
-        coverUrl:"https://via.placeholder.com/300x450"
-      }
-    ];
-  }
-
+  await loadData();
   render();
 };
 
-/* TROCA ABA */
+/* CARREGAR DADOS (COM FALLBACK FORÇADO) */
+async function loadData() {
+  try {
+    if (window.base44?.entities?.Movie) {
+      DATA = await base44.entities.Movie.list();
+    } else {
+      throw new Error("Base44 não existe");
+    }
+  } catch (e) {
+    console.log("Usando dados mock");
+
+    DATA = [
+      {
+        id: "1",
+        title: "Homem-Aranha",
+        categories: ["movie"],
+        coverUrl: "https://via.placeholder.com/300x450",
+      },
+      {
+        id: "2",
+        title: "Matrix",
+        categories: ["movie"],
+        coverUrl: "https://via.placeholder.com/300x450",
+      },
+      {
+        id: "3",
+        title: "Naruto",
+        categories: ["anime"],
+        coverUrl: "https://via.placeholder.com/300x450",
+      }
+    ];
+  }
+}
+
+/* TROCAR ABA */
 function setTab(t){
   tab = t;
   render();
@@ -59,7 +79,18 @@ function render(){
 
   const list = getData();
 
-  document.getElementById("app").innerHTML = `
+  const app = document.getElementById("app");
+
+  if(!list.length){
+    app.innerHTML = `
+      <p style="padding:20px;color:#aaa">
+        Nenhum conteúdo encontrado
+      </p>
+    `;
+    return;
+  }
+
+  app.innerHTML = `
     <div class="grid">
       ${list.map(card).join("")}
     </div>
@@ -69,8 +100,8 @@ function render(){
 /* CARD */
 function card(item){
   return `
-    <div class="card" onclick="alert('${item.title}')">
-      <img src="${item.coverUrl}">
+    <div class="card">
+      <img src="${item.coverUrl || 'https://via.placeholder.com/300x450'}">
       <div class="card-title">${item.title}</div>
     </div>
   `;
