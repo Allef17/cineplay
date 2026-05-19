@@ -1,3 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cineplay</title>
+
+<style>
+
+/* RESET */
+body{
+  margin:0;
+  background:#0B0B0B;
+  color:white;
+  font-family:Arial;
+}
+
+/* APP PRINCIPAL */
+.app{
+  display:flex;
+  height:100vh;
+}
+
+/* SIDEBAR (LATERAL) */
+.sidebar{
+  width:220px;
+  background:#000;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.logo{
+  color:#E50914;
+  font-size:22px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+/* BOTÕES */
+.sidebar button{
+  background:none;
+  border:none;
+  color:white;
+  text-align:left;
+  padding:10px;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+.sidebar button:hover{
+  background:#111;
+  color:#E50914;
+}
+
+/* BUSCA */
+.sidebar input{
+  margin-top:10px;
+  padding:8px;
+  border:none;
+  border-radius:6px;
+  background:#111;
+  color:white;
+}
+
+/* CONTEÚDO */
+.content{
+  flex:1;
+  overflow:auto;
+  padding:20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;
+}
+
+/* CARD */
+.card{
+  cursor:pointer;
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+
+.card-title{
+  font-size:12px;
+  margin-top:5px;
+}
+
+</style>
+</head>
+
 <body>
 
 <div class="app">
@@ -5,7 +103,7 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
 
-    <h1 class="logo">CINEPLAY</h1>
+    <div class="logo">CINEPLAY</div>
 
     <button onclick="setTab('home')">🏠 Home</button>
     <button onclick="setTab('movie')">🎬 Filmes</button>
@@ -20,7 +118,6 @@
   <!-- CONTEÚDO -->
   <main class="content">
 
-    <div id="hero"></div>
     <div id="app"></div>
 
   </main>
@@ -30,3 +127,4 @@
 <script src="./js/app.js"></script>
 
 </body>
+</html>
