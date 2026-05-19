@@ -2,12 +2,14 @@
   {
     "id": "m1",
     "type": "movie",
-    "title": "Homem-Aranha: Sem Volta Para Casa",
+    "title": "Homem-Aranha",
     "year": "2021",
     "genre": "Ação",
-    "poster": "https://media.themoviedb.org/t/p/w600_and_h900_face/xaKydnMw6wR1MBAjS5seGPVusbs.jpg",
-    "banner": "https://m.media-amazon.com/images/S/pv-target-images/a904636e4cd0251c15407a84d7b68ff8f87f25d36ea4baca86f50c12942f141a._SX1080_FMjpg_.jpg",
-    "embed": "https://megaembed.com/embed/634649"
+    "age": "14+",
+    "description": "Peter Parker enfrenta novos desafios como herói.",
+    "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+    "banner": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba",
+    "embed": "https://example.com/movie1"
   },
   {
     "id": "s1",
@@ -15,31 +17,16 @@
     "title": "Stranger Things",
     "year": "2022",
     "genre": "Ficção",
+    "age": "16+",
+    "description": "Eventos sobrenaturais em uma pequena cidade.",
     "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
     "banner": "https://images.unsplash.com/photo-1517604931442",
     "seasons": [
       {
         "season": 1,
         "episodes": [
-          { "ep": 1, "title": "Capítulo Um", "embed": "https://megaembed.com/embed/1" },
-          { "ep": 2, "title": "O Desaparecimento", "embed": "https://megaembed.com/embed/2" }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "a1",
-    "type": "anime",
-    "title": "Dragon Ball",
-    "year": "2002",
-    "genre": "Anime",
-    "poster": "https://media.themoviedb.org/t/p/w600_and_h900_face/yfyToia25GnvjY7FPAGaCm3lKRc.jpg",
-    "banner": "https://image.tmdb.org/t/p/original/mpsYIytXhDXjI9yYC1Fp1S3PxsS.jpg",
-    "seasons": [
-      {
-        "season": 1,
-        "episodes": [
-          { "ep": 1, "title": "Eu sou Naruto", "embed": "https://megaembed.com/embed/12971" }
+          { "ep": 1, "title": "Capítulo Um", "embed": "https://example.com/ep1" },
+          { "ep": 2, "title": "O Desaparecimento", "embed": "https://example.com/ep2" }
         ]
       }
     ]
