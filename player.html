@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cineplay Player</title>
+
+<style>
+
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  background:#000;
+  overflow:hidden;
+}
+
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<iframe id="player" allowfullscreen></iframe>
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const url = params.get('url');
+
+document
+.getElementById('player')
+.src = decodeURIComponent(url);
+
+</script>
+
+</body>
+</html>
