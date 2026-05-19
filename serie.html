@@ -2,37 +2,109 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Séries</title>
+<title>Detalhes</title>
+
 <style>
-body{margin:0;background:#000;color:#fff;font-family:Arial}
-.ep{padding:15px;margin:10px;background:#222;cursor:pointer}
-.ep:hover{background:#E50914}
+
+body{
+  margin:0;
+  background:black;
+  color:white;
+  font-family:Arial;
+}
+
+.banner{
+  height:50vh;
+  background-size:cover;
+  background-position:center;
+}
+
+.content{
+  padding:20px;
+}
+
+.ep{
+  padding:15px;
+  background:#222;
+  margin:10px;
+  cursor:pointer;
+}
+
+.ep:hover{
+  background:#E50914;
+}
+
+.btn{
+  background:#E50914;
+  border:none;
+  padding:10px 20px;
+  color:white;
+  cursor:pointer;
+}
+
 </style>
 </head>
+
 <body>
 
-<h2 id="title"></h2>
-<div id="list"></div>
+<div class="banner" id="banner"></div>
+
+<div class="content">
+  <h1 id="title"></h1>
+  <p id="desc"></p>
+
+  <button class="btn" id="play">Assistir</button>
+
+  <div id="episodes"></div>
+</div>
 
 <script>
 
-const data = JSON.parse(localStorage.getItem("serie"));
+const id = new URLSearchParams(location.search).get("id");
 
-document.getElementById("title").innerText = data.title;
+let DATA;
 
-data.seasons.forEach(s=>{
-  s.episodes.forEach(e=>{
-    document.getElementById("list").innerHTML += `
-      <div class="ep" onclick="play('${e.embed}')">
-        EP ${e.ep} - ${e.title}
-      </div>
-    `;
-  });
-});
+async function load(){
+
+  DATA = await fetch('./content/movies.json').then(r=>r.json());
+
+  const item = DATA.find(i=>i.id===id);
+
+  document.getElementById("banner").style.backgroundImage =
+    `url(${item.banner})`;
+
+  document.getElementById("title").innerText = item.title;
+  document.getElementById("desc").innerText = item.description;
+
+  document.getElementById("play").onclick = () => {
+
+    if(item.type==="movie"){
+      window.location.href="player.html?url="+encodeURIComponent(item.embed);
+    }
+
+  }
+
+  if(item.type==="serie"){
+
+    item.seasons.forEach(s=>{
+      s.episodes.forEach(e=>{
+        document.getElementById("episodes").innerHTML += `
+          <div class="ep" onclick="play('${e.embed}')">
+            EP ${e.ep} - ${e.title}
+          </div>
+        `;
+      });
+    });
+
+  }
+
+}
 
 function play(url){
   window.location.href="player.html?url="+encodeURIComponent(url);
 }
+
+load();
 
 </script>
 
