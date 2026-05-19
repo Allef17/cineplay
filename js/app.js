@@ -1,74 +1,65 @@
 let DATA = [];
-let currentTab = "home";
-let searchValue = "";
+let tab = "home";
+let query = "";
 
-async function init() {
-  DATA = await fetch('./content/movies.json').then(r => r.json());
+async function init(){
+  DATA = await fetch('./content/movies.json').then(r=>r.json());
+  renderHero();
+  render();
+  clock();
+}
+
+function setTab(t){
+  tab = t;
   render();
 }
 
-/* ===== ABAS ===== */
-function setTab(tab) {
-  currentTab = tab;
+function search(){
+  query = document.getElementById("search").value.toLowerCase();
   render();
 }
 
-/* ===== BUSCA ===== */
-function search() {
-  searchValue = document.getElementById("search").value.toLowerCase();
-  render();
+function renderHero(){
+  const hero = document.getElementById("hero");
+  const item = DATA[0];
+  hero.innerHTML = `<img src="${item.banner}">`;
 }
 
-/* ===== RENDER PRINCIPAL ===== */
-function render() {
+function render(){
+
   let list = DATA;
 
-  // FILTRO POR ABA
-  if (currentTab !== "home") {
-    list = list.filter(i => i.type === currentTab);
+  if(tab !== "home"){
+    list = list.filter(i=>i.type === tab);
   }
 
-  // FILTRO POR BUSCA
-  if (searchValue) {
-    list = list.filter(i =>
-      i.title.toLowerCase().includes(searchValue)
-    );
+  if(query){
+    list = list.filter(i=>i.title.toLowerCase().includes(query));
   }
 
   const app = document.getElementById("app");
 
-  if (!list.length) {
-    app.innerHTML = `<p style="padding:20px">Nada encontrado</p>`;
-    return;
-  }
-
   app.innerHTML = `
     <div class="row">
-      ${list.map(item => card(item)).join("")}
+      ${list.map(i=>`
+        <div class="card" onclick="openItem('${i.id}')">
+          <img src="${i.poster}">
+          <div class="card-title">${i.title}</div>
+        </div>
+      `).join("")}
     </div>
   `;
 }
 
-/* ===== CARD (COM NOME + IMAGEM) ===== */
-function card(item) {
-  return `
-    <div class="card" onclick="openDetails('${item.id}')">
-      <img src="${item.poster}" alt="${item.title}">
-      <div style="
-        font-size:12px;
-        margin-top:5px;
-        text-align:center;
-        color:#fff;
-      ">
-        ${item.title}
-      </div>
-    </div>
-  `;
+function openItem(id){
+  window.location.href = "details.html?id="+id;
 }
 
-/* ===== ABRIR DETALHES ===== */
-function openDetails(id) {
-  window.location.href = "serie.html?id=" + id;
+function clock(){
+  setInterval(()=>{
+    document.getElementById("clock").innerText =
+    new Date().toLocaleString("pt-BR");
+  },1000);
 }
 
 init();
