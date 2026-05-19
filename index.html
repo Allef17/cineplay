@@ -15,59 +15,39 @@ body{
   font-family:Arial;
 }
 
+/* HEADER */
 header{
-  padding:20px;
+  padding:20px 40px;
   font-size:28px;
   font-weight:900;
   color:#E50914;
 }
 
-#hero{
-  height:60vh;
-  position:relative;
-  overflow:hidden;
-}
-
-.hero-item{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:1s;
-}
-
-.hero-item.active{
-  opacity:1;
-}
-
-.hero-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(.6);
-}
-
-.hero-text{
-  position:absolute;
-  bottom:60px;
-  left:40px;
-}
-
+/* CONTAINER PRINCIPAL */
 main{
-  padding:20px;
+  padding:20px 40px;
 }
 
+/* SEÇÃO */
 .section-title{
   font-size:20px;
   margin:20px 0 10px;
   font-weight:bold;
 }
 
+/* CARROSSEL */
 .cards{
   display:flex;
-  gap:10px;
+  gap:12px;
   overflow-x:auto;
+  padding-bottom:10px;
 }
 
+.cards::-webkit-scrollbar{
+  display:none;
+}
+
+/* CARD NETFLIX */
 .card{
   min-width:200px;
   height:120px;
@@ -75,6 +55,7 @@ main{
   overflow:hidden;
   cursor:pointer;
   transition:.3s;
+  position:relative;
 }
 
 .card:hover{
@@ -87,15 +68,36 @@ main{
   object-fit:cover;
 }
 
-</style>
+/* OVERLAY */
+.card-info{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  z-index:2;
+}
 
+.card-title{
+  font-weight:bold;
+  font-size:14px;
+}
+
+.card-meta{
+  font-size:12px;
+  color:#ccc;
+}
+
+.card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
+}
+
+</style>
 </head>
 
 <body>
 
 <header>CINEPLAY</header>
-
-<section id="hero"></section>
 
 <main>
   <div id="sections"></div>
