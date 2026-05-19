@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Série</title>
+<style>
+body{margin:0;background:#000;color:white;font-family:Arial}
+.ep{padding:15px;margin:10px;background:#222;cursor:pointer}
+.ep:hover{background:#E50914}
+</style>
+</head>
+
+<body>
+
+<h2 id="title"></h2>
+<div id="list"></div>
+
+<script>
+
+const data = JSON.parse(localStorage.getItem("serie"));
+
+document.getElementById("title").innerText = data.title;
+
+data.seasons.forEach(s=>{
+  s.episodes.forEach(e=>{
+    document.getElementById("list").innerHTML += `
+      <div class="ep" onclick="play('${e.embed}')">
+        EP ${e.ep} - ${e.title}
+      </div>
+    `;
+  });
+});
+
+function play(url){
+  window.location.href = "player.html?url=" + encodeURIComponent(url);
+}
+
+</script>
+
+</body>
+</html>
