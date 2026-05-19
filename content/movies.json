@@ -2,14 +2,14 @@
   {
     "id": "m1",
     "type": "movie",
-    "title": "Homem-Aranha",
+    "title": "Homem-Aranha: Sem Volta Para Casa",
     "year": "2021",
     "genre": "Ação",
     "age": "14+",
     "description": "Peter Parker enfrenta novos desafios como herói.",
-    "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
-    "banner": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba",
-    "embed": "https://example.com/movie1"
+    "poster": "https://media.themoviedb.org/t/p/w600_and_h900_face/xaKydnMw6wR1MBAjS5seGPVusbs.jpg",
+    "banner": "https://media.themoviedb.org/t/p/w780/zD5v1E4joAzFvmAEytt7fM3ivyT.jpg",
+    "embed": "https://primevicio.lat/embed/movie/634649"
   },
   {
     "id": "s1",
