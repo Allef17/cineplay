@@ -1,24 +1,47 @@
 [
   {
-    "title": "Homem-Aranha: Sem Volta Para Casa",
+    "id": "m1",
+    "type": "movie",
+    "title": "Homem-Aranha",
     "year": "2021",
     "genre": "Ação",
-    "embed": "https://megaembed.com/embed/634649",
-    "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgpUvVLRFUmyRR3YzNsfG8iMLFy0dxyIxCmQ&s"
+    "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+    "banner": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba",
+    "embed": "https://megaembed.com/embed/634649"
   },
-
   {
-    "title":"Matrix",
-    "year":"1999",
-    "genre":"Ficção",
-    "embed":"https://megaembed.com/embed/603"
-  },
-
-  {
-    "title": "Matrix",
-    "year": "1999",
+    "id": "s1",
+    "type": "serie",
+    "title": "Stranger Things",
+    "year": "2022",
     "genre": "Ficção",
-    "embed": "https://megaembed.com/embed/603",
-    "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
+    "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+    "banner": "https://images.unsplash.com/photo-1517604931442",
+    "seasons": [
+      {
+        "season": 1,
+        "episodes": [
+          { "ep": 1, "title": "Capítulo Um", "embed": "https://megaembed.com/embed/1" },
+          { "ep": 2, "title": "O Desaparecimento", "embed": "https://megaembed.com/embed/2" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a1",
+    "type": "anime",
+    "title": "Naruto",
+    "year": "2002",
+    "genre": "Anime",
+    "poster": "https://via.placeholder.com/300x450",
+    "banner": "https://images.unsplash.com/photo-1513106580091",
+    "seasons": [
+      {
+        "season": 1,
+        "episodes": [
+          { "ep": 1, "title": "Eu sou Naruto", "embed": "https://megaembed.com/embed/3" }
+        ]
+      }
+    ]
   }
 ]
