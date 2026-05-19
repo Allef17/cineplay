@@ -10,25 +10,58 @@
 
 body{
   margin:0;
-  background:#141414;
+  background:#0B0B0B;
   color:white;
   font-family:Arial;
 }
 
 header{
   padding:20px;
-  background:#000;
-  font-size:22px;
-  font-weight:bold;
-  color:#e50914;
+  font-size:28px;
+  font-weight:900;
+  color:#E50914;
 }
 
-/* ESSENCIAL PRO JS */
-#sections{
+#hero{
+  height:60vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-item{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:1s;
+}
+
+.hero-item.active{
+  opacity:1;
+}
+
+.hero-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.6);
+}
+
+.hero-text{
+  position:absolute;
+  bottom:60px;
+  left:40px;
+}
+
+main{
   padding:20px;
 }
 
-/* CARDS */
+.section-title{
+  font-size:20px;
+  margin:20px 0 10px;
+  font-weight:bold;
+}
+
 .cards{
   display:flex;
   gap:10px;
@@ -38,16 +71,14 @@ header{
 .card{
   min-width:200px;
   height:120px;
-  background:#222;
   border-radius:10px;
   overflow:hidden;
   cursor:pointer;
-  position:relative;
   transition:.3s;
 }
 
 .card:hover{
-  transform:scale(1.1);
+  transform:scale(1.15);
 }
 
 .card img{
@@ -56,43 +87,19 @@ header{
   object-fit:cover;
 }
 
-.card-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
-}
-
-.card-info{
-  position:absolute;
-  bottom:10px;
-  left:10px;
-}
-
-.card-title{
-  font-weight:bold;
-}
-
-.card-meta{
-  font-size:12px;
-  color:#ccc;
-}
-
-.section-title{
-  font-size:20px;
-  margin-bottom:10px;
-}
-
 </style>
+
 </head>
 
 <body>
 
-<header>
-  Cineplay
-</header>
+<header>CINEPLAY</header>
 
-<!-- IMPORTANTE PRO JS -->
-<div id="sections"></div>
+<section id="hero"></section>
+
+<main>
+  <div id="sections"></div>
+</main>
 
 <script src="./js/app.js"></script>
 
