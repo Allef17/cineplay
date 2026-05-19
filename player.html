@@ -22,12 +22,10 @@ iframe{
 
 <body>
 
-<iframe id="player" allowfullscreen></iframe>
+<iframe id="player"></iframe>
 
 <script>
-const params = new URLSearchParams(window.location.search);
-const url = params.get('url');
-
+const url = new URLSearchParams(window.location.search).get('url');
 document.getElementById('player').src = decodeURIComponent(url);
 </script>
 
