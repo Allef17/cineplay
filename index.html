@@ -2,23 +2,17 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Cineplay</title>
 
 <style>
 
-body{
-  margin:0;
-  background:#0B0B0B;
-  color:white;
-  font-family:Arial;
-}
+body{margin:0;background:#0B0B0B;color:#fff;font-family:Arial}
 
 /* SPLASH */
 #splash{
-  position:fixed;
-  inset:0;
-  background:black;
+  position:fixed;inset:0;
+  background:#000;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -34,8 +28,8 @@ body{
   animation:zoom 2s ease;
 }
 
-@keyframes zoom{ from{transform:scale(.5);opacity:0} to{transform:scale(1);opacity:1} }
-@keyframes fade{ to{opacity:0;visibility:hidden} }
+@keyframes zoom{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes fade{to{opacity:0;visibility:hidden}}
 
 /* HEADER */
 header{
@@ -45,84 +39,25 @@ header{
   display:flex;
   justify-content:space-between;
   padding:20px 40px;
-  z-index:10;
 }
 
-.logo{
-  color:#E50914;
-  font-weight:900;
-}
-
-nav button{
-  background:none;
-  border:none;
-  color:#aaa;
-  margin-right:15px;
-  cursor:pointer;
-}
-nav button:hover{color:white}
+.logo{color:#E50914;font-weight:900}
 
 /* HERO */
-.hero{
-  height:65vh;
-  position:relative;
-  overflow:hidden;
+.hero{height:65vh;position:relative}
+
+.hero img{
+  width:100%;height:100%;object-fit:cover;filter:brightness(.5)
 }
 
-.hero-slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:1s;
-}
+/* CARDS */
+main{padding:120px 40px 40px}
 
-.hero-slide.active{opacity:1}
-
-.hero-slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(.5);
-}
-
-.hero-text{
-  position:absolute;
-  bottom:80px;
-  left:40px;
-}
-
-/* SECTIONS */
-main{padding:20px 40px}
-
-.section-title{
-  margin:20px 0 10px;
-  font-weight:bold;
-}
-
-.cards{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-}
-
+.cards{display:flex;gap:12px;overflow-x:auto}
 .cards::-webkit-scrollbar{display:none}
 
-.card{
-  min-width:180px;
-  height:260px;
-  border-radius:8px;
-  overflow:hidden;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.card:hover{transform:scale(1.15)}
-
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+.card{min-width:180px;height:260px;cursor:pointer}
+.card img{width:100%;height:100%;object-fit:cover}
 
 </style>
 </head>
@@ -132,23 +67,17 @@ main{padding:20px 40px}
 <div id="splash"><h1>CINEPLAY</h1></div>
 
 <audio id="introSound">
-  <source src="https://cdn.pixabay.com/download/audio/2023/03/15/audio_7b1c0d3b7c.mp3" type="audio/mp3">
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/15/audio_7b1c0d3b7c.mp3">
 </audio>
 
 <header>
   <div class="logo">CINEPLAY</div>
-  <nav>
-    <button onclick="setTab('home')">Home</button>
-    <button onclick="setTab('movie')">Filmes</button>
-    <button onclick="setTab('serie')">Séries</button>
-    <button onclick="setTab('anime')">Animes</button>
-  </nav>
 </header>
 
 <section class="hero" id="hero"></section>
 
 <main>
-  <div id="sections"></div>
+  <div id="list"></div>
 </main>
 
 <script src="./js/app.js"></script>
