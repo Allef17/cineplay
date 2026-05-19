@@ -1,51 +1,16 @@
 [
   {
-    "type": "movie",
     "title": "Homem-Aranha",
-    "genre": "Ação",
     "year": "2021",
-    "poster": "https://via.placeholder.com/300x170",
-    "banner": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba",
-    "embed": "https://megaembed.com/embed/634649"
-  },
-  {
-    "type": "serie",
-    "title": "Stranger Things",
-    "genre": "Ficção",
-    "year": "2022",
-    "poster": "https://via.placeholder.com/300x170",
-    "banner": "https://images.unsplash.com/photo-1517604931442",
-    "seasons": [
-      {
-        "season": 1,
-        "episodes": [
-          {
-            "ep": 1,
-            "title": "Capítulo Um",
-            "embed": "https://megaembed.com/embed/1"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "anime",
-    "title": "Naruto",
     "genre": "Ação",
-    "year": "2002",
-    "poster": "https://via.placeholder.com/300x170",
-    "banner": "https://images.unsplash.com/photo-1513106580091",
-    "seasons": [
-      {
-        "season": 1,
-        "episodes": [
-          {
-            "ep": 1,
-            "title": "Eu sou Naruto",
-            "embed": "https://megaembed.com/embed/2"
-          }
-        ]
-      }
-    ]
+    "embed": "https://megaembed.com/embed/634649",
+    "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
+  },
+  {
+    "title": "Matrix",
+    "year": "1999",
+    "genre": "Ficção",
+    "embed": "https://megaembed.com/embed/603",
+    "poster": "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg"
   }
 ]
