@@ -30,16 +30,16 @@
   {
     "id": "a1",
     "type": "anime",
-    "title": "Naruto",
+    "title": "Dragon Ball",
     "year": "2002",
     "genre": "Anime",
-    "poster": "https://media.themoviedb.org/t/p/w600_and_h900_face/9ptbVZpKNy5NY9D4zq4KGiYWRQY.jpg",
+    "poster": "https://media.themoviedb.org/t/p/w600_and_h900_face/yfyToia25GnvjY7FPAGaCm3lKRc.jpg",
     "banner": "https://image.tmdb.org/t/p/original/mpsYIytXhDXjI9yYC1Fp1S3PxsS.jpg",
     "seasons": [
       {
         "season": 1,
         "episodes": [
-          { "ep": 1, "title": "Eu sou Naruto", "embed": "https://megaembed.com/embed/46260" }
+          { "ep": 1, "title": "Eu sou Naruto", "embed": "https://megaembed.com/embed/12971" }
         ]
       }
     ]
