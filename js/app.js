@@ -1,71 +1,37 @@
-async function loadApp() {
+async function loadMovies() {
 
-  const res = await fetch('./content/all.json');
-  const data = await res.json();
+  const response = await fetch('./content/movies.json');
+  const movies = await response.json();
 
-  const hero = document.getElementById('hero');
-  const sections = document.getElementById('sections');
+  const container = document.getElementById('sections');
 
-  const movies = data.filter(i => i.type === 'movie');
+  const section = document.createElement('div');
 
-  // ===== HERO CAROUSEL =====
-  movies.slice(0,6).forEach((movie, index) => {
+  section.innerHTML = `
+    <div class="section-title">Filmes</div>
+    <div class="cards">
+      ${movies.map(movie => `
+        <div class="card" onclick="openMovie('${movie.embed}')">
+          
+          <img src="${movie.poster}" />
 
-    hero.innerHTML += `
-      <div class="hero-item ${index === 0 ? 'active' : ''}">
-        <img src="${movie.banner}">
-        <div class="hero-text">
-          <h1>${movie.title}</h1>
-          <p>${movie.genre} • ${movie.year}</p>
-        </div>
-      </div>
-    `;
+          <div class="card-overlay"></div>
 
-  });
-
-  let current = 0;
-  setInterval(() => {
-
-    const items = document.querySelectorAll('.hero-item');
-    items[current].classList.remove('active');
-
-    current = (current + 1) % items.length;
-
-    items[current].classList.add('active');
-
-  }, 6000);
-
-  // ===== SEÇÕES =====
-  const types = ['movie','serie','anime'];
-
-  types.forEach(type => {
-
-    const filtered = data.filter(i => i.type === type);
-
-    const section = document.createElement('div');
-
-    section.innerHTML = `
-      <div class="section-title">
-        ${type === 'movie' ? 'Filmes' : type === 'serie' ? 'Séries' : 'Animes'}
-      </div>
-
-      <div class="cards">
-        ${filtered.map(item => `
-          <div class="card" onclick="openContent('${item.embed || ''}')">
-            <img src="${item.poster}">
+          <div class="card-info">
+            <div class="card-title">${movie.title}</div>
+            <div class="card-meta">${movie.year} • ${movie.genre}</div>
           </div>
-        `).join('')}
-      </div>
-    `;
 
-    sections.appendChild(section);
+        </div>
+      `).join('')}
+    </div>
+  `;
 
-  });
-
+  container.appendChild(section);
 }
 
-function openContent(embed){
+function openMovie(embed){
   window.location.href = `player.html?url=${encodeURIComponent(embed)}`;
 }
 
-loadApp();
+loadMovies();
