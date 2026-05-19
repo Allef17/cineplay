@@ -14,7 +14,7 @@ async function loadMovies(){
 
       cardsContainers[0].innerHTML += `
 
-        <div class="card">
+        <div class="card" onclick="openMovie('${movie.embed}')">
 
           <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg">
 
@@ -43,3 +43,10 @@ async function loadMovies(){
 }
 
 loadMovies();
+
+function openMovie(embed){
+
+  window.location.href =
+  `player.html?url=${encodeURIComponent(embed)}`;
+
+}
