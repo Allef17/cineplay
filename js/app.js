@@ -4,39 +4,38 @@ async function init(){
 
   DATA = await fetch('./content/movies.json').then(r=>r.json());
 
-  renderHero();
-  renderList();
-
-  const audio = document.getElementById("introSound");
-  audio.volume = 0.4;
-  audio.play().catch(()=>{});
+  renderHome();
 }
 
-function renderHero(){
+function renderHome(){
 
-  const hero = document.getElementById("hero");
-  const first = DATA[0];
+  const container = document.getElementById("app");
 
-  hero.innerHTML = `<img src="${first.banner}">`;
+  const movies = DATA.filter(i=>i.type==="movie");
+
+  container.innerHTML = `
+    <h2 class="title">Filmes</h2>
+    <div class="row">
+      ${movies.map(m=>card(m)).join("")}
+    </div>
+
+    <h2 class="title">Séries</h2>
+    <div class="row">
+      ${DATA.filter(i=>i.type==="serie").map(m=>card(m)).join("")}
+    </div>
+  `;
 }
 
-function renderList(){
-
-  const el = document.getElementById("list");
-
-  el.innerHTML = `
-    <div class="cards">
-      ${DATA.slice(0,30).map(i=>`
-        <div class="card" onclick="openDetails('${i.id}')">
-          <img src="${i.poster}">
-        </div>
-      `).join("")}
+function card(item){
+  return `
+    <div class="card" onclick="openDetails('${item.id}')">
+      <img src="${item.poster}">
     </div>
   `;
 }
 
 function openDetails(id){
-  window.location.href = "details.html?id="+id;
+  window.location.href = "serie.html?id="+id;
 }
 
 init();
