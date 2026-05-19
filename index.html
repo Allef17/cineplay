@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Cineplay</title>
 
 <style>
@@ -12,30 +11,64 @@ body{
   margin:0;
   background:#0B0B0B;
   color:white;
-  font-family:Arial;
+  font-family:Arial, sans-serif;
 }
 
-/* HEADER */
+/* ===== HEADER NETFLIX ===== */
 header{
-  padding:20px 40px;
-  font-size:28px;
-  font-weight:900;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  background:linear-gradient(to bottom, rgba(0,0,0,.9), transparent);
+  z-index:10;
+}
+
+.logo{
   color:#E50914;
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:2px;
 }
 
-/* CONTAINER PRINCIPAL */
+/* ===== ABAS ===== */
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav button{
+  background:none;
+  border:none;
+  color:#bbb;
+  font-size:14px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+nav button:hover{
+  color:white;
+}
+
+/* ===== MAIN ===== */
 main{
-  padding:20px 40px;
+  padding-top:100px;
+  padding-left:40px;
 }
 
-/* SEÇÃO */
+/* ===== SEÇÕES ===== */
 .section-title{
   font-size:20px;
+  font-weight:800;
   margin:20px 0 10px;
-  font-weight:bold;
 }
 
-/* CARROSSEL */
+/* ===== CARROSSEL NETFLIX ===== */
 .cards{
   display:flex;
   gap:12px;
@@ -47,19 +80,21 @@ main{
   display:none;
 }
 
-/* CARD NETFLIX */
+/* ===== POSTER NETFLIX ===== */
 .card{
-  min-width:200px;
-  height:120px;
-  border-radius:10px;
+  min-width:180px;
+  height:260px;
+  border-radius:8px;
   overflow:hidden;
   cursor:pointer;
   transition:.3s;
   position:relative;
+  flex-shrink:0;
 }
 
 .card:hover{
-  transform:scale(1.15);
+  transform:scale(1.18);
+  z-index:5;
 }
 
 .card img{
@@ -68,17 +103,23 @@ main{
   object-fit:cover;
 }
 
-/* OVERLAY */
+/* overlay estilo Netflix */
+.card-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.85), transparent);
+}
+
+/* info */
 .card-info{
   position:absolute;
   bottom:10px;
   left:10px;
-  z-index:2;
 }
 
 .card-title{
-  font-weight:bold;
   font-size:14px;
+  font-weight:bold;
 }
 
 .card-meta{
@@ -86,18 +127,24 @@ main{
   color:#ccc;
 }
 
-.card-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
-}
-
 </style>
 </head>
 
 <body>
 
-<header>CINEPLAY</header>
+<header>
+
+  <div class="logo">CINEPLAY</div>
+
+  <nav>
+    <button>Home</button>
+    <button>Filmes</button>
+    <button>Séries</button>
+    <button>Animes</button>
+    <button>Canais</button>
+  </nav>
+
+</header>
 
 <main>
   <div id="sections"></div>
