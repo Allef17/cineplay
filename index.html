@@ -1,122 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Cineplay</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-
 <style>
 
-/* =======================
-   BASE NETFLIX STYLE
-======================= */
-:root{
-  --bg:#141414;
-  --red:#E50914;
-  --white:#fff;
-  --gray:#b3b3b3;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Inter, sans-serif;
-}
-
 body{
-  background:var(--bg);
-  color:var(--white);
-  overflow-x:hidden;
+  margin:0;
+  background:#141414;
+  color:white;
+  font-family:Arial;
 }
 
-/* =======================
-   HEADER (SEM MEXER EM JS)
-======================= */
 header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 40px;
-  background:linear-gradient(to bottom, rgba(0,0,0,.85), transparent);
-  z-index:100;
-  backdrop-filter:blur(10px);
-}
-
-.logo{
-  color:var(--red);
-  font-size:32px;
-  font-weight:900;
-}
-
-nav button{
-  background:none;
-  border:none;
-  color:var(--gray);
-  margin-right:15px;
-  font-size:15px;
-  cursor:pointer;
-}
-
-nav button:hover{
-  color:#fff;
-}
-
-/* =======================
-   HERO (SE EXISTIR NO SEU HTML)
-======================= */
-.hero{
-  height:85vh;
-}
-
-/* =======================
-   SEÇÕES (IMPORTANTE PRO JS)
-======================= */
-main{
-  padding-top:100px;
-}
-
-.section{
-  padding:0 40px;
-  margin-bottom:40px;
-}
-
-.section-title{
+  padding:20px;
+  background:#000;
   font-size:22px;
-  font-weight:800;
-  margin-bottom:12px;
+  font-weight:bold;
+  color:#e50914;
 }
 
-/* ⚠️ ESSA CLASSE É O MAIS IMPORTANTE DO SEU APP */
+/* ESSENCIAL PRO JS */
+#sections{
+  padding:20px;
+}
+
+/* CARDS */
 .cards{
   display:flex;
-  gap:12px;
+  gap:10px;
   overflow-x:auto;
-  padding-bottom:10px;
 }
 
-.cards::-webkit-scrollbar{
-  display:none;
-}
-
-/* =======================
-   CARD (CRIADO PELO JS)
-======================= */
 .card{
-  min-width:210px;
-  height:125px;
+  min-width:200px;
+  height:120px;
+  background:#222;
   border-radius:10px;
   overflow:hidden;
   cursor:pointer;
   position:relative;
   transition:.3s;
+}
+
+.card:hover{
+  transform:scale(1.1);
 }
 
 .card img{
@@ -125,15 +56,10 @@ main{
   object-fit:cover;
 }
 
-.card:hover{
-  transform:scale(1.15);
-  z-index:5;
-}
-
 .card-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.9), transparent);
+  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
 }
 
 .card-info{
@@ -143,86 +69,31 @@ main{
 }
 
 .card-title{
-  font-size:16px;
-  font-weight:700;
+  font-weight:bold;
 }
 
 .card-meta{
   font-size:12px;
-  color:var(--gray);
+  color:#ccc;
 }
 
-/* =======================
-   IPTV (SE VOCÊ USA)
-======================= */
-.channels-section{
-  padding:40px;
-}
-
-.channels-title{
-  font-size:26px;
-  font-weight:900;
-  margin-bottom:20px;
-}
-
-.channel-btn{
-  background:#222;
-  border:none;
-  color:white;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:8px;
-  width:100%;
-  cursor:pointer;
-}
-
-.channel-btn:hover{
-  background:var(--red);
+.section-title{
+  font-size:20px;
+  margin-bottom:10px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- HEADER (mantido compatível) -->
 <header>
-
-  <div class="logo">CINEPLAY</div>
-
-  <nav>
-    <button>Home</button>
-    <button>Filmes</button>
-    <button>Séries</button>
-    <button>Animes</button>
-    <button>Canais</button>
-  </nav>
-
+  Cineplay
 </header>
 
-<!-- HERO (não interfere no JS) -->
-<section class="hero"></section>
+<!-- IMPORTANTE PRO JS -->
+<div id="sections"></div>
 
-<!-- ⚠️ ESSA PARTE É O CORAÇÃO DO SEU APP -->
-<main>
-
-  <div id="sections"></div>
-
-</main>
-
-<!-- IPTV -->
-<section class="channels-section">
-
-  <div class="channels-title">Canais Ao Vivo</div>
-
-  <button class="channel-btn">Globo</button>
-  <button class="channel-btn">SBT</button>
-  <button class="channel-btn">SportTV</button>
-
-</section>
-
-<!-- SEU JS ORIGINAL (NÃO ALTERADO) -->
 <script src="./js/app.js"></script>
 
 </body>
