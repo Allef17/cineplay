@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<title>Detalhes</title>
-<style>
-body{margin:0;background:#000;color:white;font-family:Arial}
-.banner{height:60vh;background-size:cover}
-.content{padding:20px}
-.btn{background:#E50914;border:none;padding:10px;color:white;cursor:pointer}
-</style>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Detalhes | TVPLAY</title>
+
+  <link
+    rel="stylesheet"
+    href="ativos/css/style.css"
+  >
+
 </head>
 
 <body>
 
-<div class="banner" id="banner"></div>
+  <div class="details-banner">
 
-<div class="content">
-<h1 id="title"></h1>
-<p id="desc"></p>
-<button class="btn" id="play">Assistir</button>
-</div>
+    <div class="details-overlay">
 
-<script>
+      <span id="detailsGenre"></span>
 
-const id = new URLSearchParams(location.search).get("id");
+      <h1 id="detailsTitle"></h1>
 
-async function load(){
+      <div class="details-info">
 
-  const data = await fetch('./content/movies.json').then(r=>r.json());
+        <span id="detailsYear"></span>
 
-  const item = data.find(i=>i.id===id);
+        <span id="detailsRating"></span>
 
-  document.getElementById("banner").style.backgroundImage =
-    `url(${item.banner})`;
+      </div>
 
-  document.getElementById("title").innerText = item.title;
-  document.getElementById("desc").innerText = item.description;
+      <p id="detailsDescription"></p>
 
-  document.getElementById("play").onclick = ()=>{
-    window.location.href = "player.html?url="+encodeURIComponent(item.embed);
-  }
+      <div class="details-buttons">
 
-}
+        <button id="watchButton">
+          Assistir
+        </button>
 
-load();
+        <button id="favoriteButton">
+          Favoritar
+        </button>
 
-</script>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="js/detalhes.js"></script>
 
 </body>
+
 </html>
