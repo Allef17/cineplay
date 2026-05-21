@@ -1,130 +1,151 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cineplay</title>
 
-<style>
+  <meta charset="UTF-8" />
 
-/* RESET */
-body{
-  margin:0;
-  background:#0B0B0B;
-  color:white;
-  font-family:Arial;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-/* APP PRINCIPAL */
-.app{
-  display:flex;
-  height:100vh;
-}
+  <title>TVPLAY</title>
 
-/* SIDEBAR (LATERAL) */
-.sidebar{
-  width:220px;
-  background:#000;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
+  <link
+    rel="stylesheet"
+    href="ativos/css/style.css"
+  />
 
-.logo{
-  color:#E50914;
-  font-size:22px;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-/* BOTÕES */
-.sidebar button{
-  background:none;
-  border:none;
-  color:white;
-  text-align:left;
-  padding:10px;
-  cursor:pointer;
-  border-radius:6px;
-}
-
-.sidebar button:hover{
-  background:#111;
-  color:#E50914;
-}
-
-/* BUSCA */
-.sidebar input{
-  margin-top:10px;
-  padding:8px;
-  border:none;
-  border-radius:6px;
-  background:#111;
-  color:white;
-}
-
-/* CONTEÚDO */
-.content{
-  flex:1;
-  overflow:auto;
-  padding:20px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-  gap:12px;
-}
-
-/* CARD */
-.card{
-  cursor:pointer;
-}
-
-.card img{
-  width:100%;
-  border-radius:10px;
-}
-
-.card-title{
-  font-size:12px;
-  margin-top:5px;
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="app">
-
-  <!-- SIDEBAR -->
   <aside class="sidebar">
 
-    <div class="logo">CINEPLAY</div>
+    <div class="logo">
+      TVPLAY
+    </div>
 
-    <button onclick="setTab('home')">🏠 Home</button>
-    <button onclick="setTab('movie')">🎬 Filmes</button>
-    <button onclick="setTab('serie')">📺 Séries</button>
-    <button onclick="setTab('anime')">🎌 Animes</button>
-    <button onclick="setTab('channel')">📡 Canais</button>
+    <nav>
 
-    <input id="search" placeholder="Buscar..." oninput="search()">
+      <a href="index.html">
+        Início
+      </a>
+
+      <a href="filmes.html">
+        Filmes
+      </a>
+
+      <a href="series.html">
+        Séries
+      </a>
+
+      <a href="animes.html">
+        Animes
+      </a>
+
+      <a href="canais.html">
+        Canais
+      </a>
+
+      <a href="favoritos.html">
+        Favoritos
+      </a>
+
+      <a href="configuracoes.html">
+        Configurações
+      </a>
+
+      <a href="gerenciar.html">
+        Gerenciar
+      </a>
+
+    </nav>
 
   </aside>
 
-  <!-- CONTEÚDO -->
-  <main class="content">
+  <main class="main-content">
 
-    <div id="app"></div>
+    <section class="hero">
+
+      <div class="overlay">
+
+        <span class="category">
+          AÇÃO
+        </span>
+
+        <h1>
+          Karate Kid
+        </h1>
+
+        <p>
+          Quando um garoto e sua mãe se mudam para a China,
+          ele aprende artes marciais para enfrentar novos desafios.
+        </p>
+
+        <div class="buttons">
+
+          <button class="play-btn">
+            Assistir
+          </button>
+
+          <button class="info-btn">
+            Saiba Mais
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="movies-section">
+
+      <h2>
+        Recém Adicionados
+      </h2>
+
+      <div class="movies-row">
+
+        <div class="movie-card">
+
+          <img
+            src="https://image.tmdb.org/t/p/w500/bvXA05Oh6hIQnWQ4jT6C5Qx9q4H.jpg"
+          />
+
+        </div>
+
+        <div class="movie-card">
+
+          <img
+            src="https://image.tmdb.org/t/p/w500/1P7w3AImoEOWJX7nn3R3w4VJm9M.jpg"
+          />
+
+        </div>
+
+        <div class="movie-card">
+
+          <img
+            src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg"
+          />
+
+        </div>
+
+        <div class="movie-card">
+
+          <img
+            src="https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg"
+          />
+
+        </div>
+
+      </div>
+
+    </section>
 
   </main>
 
-</div>
-
-<script src="./js/app.js"></script>
-
 </body>
+
 </html>
