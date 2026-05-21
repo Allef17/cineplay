@@ -2,7 +2,7 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
 }
 
 body{
@@ -177,6 +177,71 @@ body{
   transform:scale(1.05);
 }
 
+/* DETALHES */
+
+.details-banner{
+  height:100vh;
+  display:flex;
+  align-items:center;
+}
+
+.details-overlay{
+  padding:70px;
+  max-width:700px;
+}
+
+.details-overlay h1{
+  font-size:70px;
+  margin:20px 0;
+}
+
+.details-overlay p{
+  color:#ddd;
+  line-height:1.7;
+  margin-top:20px;
+}
+
+.details-info{
+  display:flex;
+  gap:20px;
+  color:#bbb;
+}
+
+.details-buttons{
+  display:flex;
+  gap:20px;
+  margin-top:40px;
+}
+
+.details-buttons button{
+  padding:16px 35px;
+  border:none;
+  border-radius:12px;
+  font-size:18px;
+  cursor:pointer;
+  background:#e50914;
+  color:#fff;
+  transition:.3s;
+}
+
+.details-buttons button:hover{
+  transform:scale(1.05);
+}
+
+/* PLAYER */
+
+.player-container{
+  width:100%;
+  height:100vh;
+  background:#000;
+}
+
+.player-container iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
 /* RESPONSIVO */
 
 @media(max-width:900px){
@@ -196,6 +261,10 @@ body{
   }
 
   .hero h1{
+    font-size:45px;
+  }
+
+  .details-overlay h1{
     font-size:45px;
   }
 
