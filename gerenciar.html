@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Gerenciar | TVPLAY</title>
+
+  <link
+    rel="stylesheet"
+    href="ativos/css/style.css"
+  >
+
+</head>
+
+<body>
+
+  <div class="admin-login" id="adminLogin">
+
+    <div class="admin-box">
+
+      <h1>
+        Painel Gerenciar
+      </h1>
+
+      <input
+        type="password"
+        id="adminPassword"
+        placeholder="Senha"
+      >
+
+      <button onclick="checkPassword()">
+        Entrar
+      </button>
+
+    </div>
+
+  </div>
+
+  <main
+    class="admin-panel"
+    id="adminPanel"
+    style="display:none;"
+  >
+
+    <h1>
+      Gerenciar Conteúdos
+    </h1>
+
+    <div class="form-grid">
+
+      <select id="contentType">
+
+        <option value="filme">
+          Filme
+        </option>
+
+        <option value="serie">
+          Série
+        </option>
+
+        <option value="anime">
+          Anime
+        </option>
+
+        <option value="canal">
+          Canal
+        </option>
+
+      </select>
+
+      <input
+        type="text"
+        id="title"
+        placeholder="Nome do conteúdo"
+      >
+
+      <input
+        type="text"
+        id="genre"
+        placeholder="Gênero"
+      >
+
+      <input
+        type="text"
+        id="year"
+        placeholder="Ano"
+      >
+
+      <select id="rating">
+
+        <option>
+          Livre
+        </option>
+
+        <option>
+          10 anos
+        </option>
+
+        <option>
+          12 anos
+        </option>
+
+        <option>
+          14 anos
+        </option>
+
+        <option>
+          16 anos
+        </option>
+
+        <option>
+          18 anos
+        </option>
+
+      </select>
+
+      <input
+        type="text"
+        id="poster"
+        placeholder="Poster URL"
+      >
+
+      <input
+        type="text"
+        id="banner"
+        placeholder="Banner URL"
+      >
+
+      <input
+        type="text"
+        id="link"
+        placeholder="Link do conteúdo"
+      >
+
+      <textarea
+        id="description"
+        placeholder="Sinopse"
+      ></textarea>
+
+      <button onclick="saveContent()">
+        Salvar Conteúdo
+      </button>
+
+    </div>
+
+    <div id="contentList"></div>
+
+  </main>
+
+  <script src="js/gerenciar.js"></script>
+
+</body>
+
+</html>
