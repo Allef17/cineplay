@@ -242,6 +242,108 @@ body{
   border:none;
 }
 
+/* GERENCIAR */
+
+.admin-login{
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.admin-box{
+  width:400px;
+  background:#111;
+  padding:40px;
+  border-radius:20px;
+}
+
+.admin-box h1{
+  margin-bottom:30px;
+}
+
+.admin-box input{
+  width:100%;
+  padding:15px;
+  margin-bottom:20px;
+  border:none;
+  border-radius:10px;
+  background:#222;
+  color:#fff;
+}
+
+.admin-box button{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:10px;
+  background:#e50914;
+  color:#fff;
+  cursor:pointer;
+}
+
+.admin-panel{
+  padding:40px;
+  width:100%;
+}
+
+.form-grid{
+  display:grid;
+  gap:20px;
+  margin-top:30px;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+  padding:15px;
+  background:#111;
+  border:none;
+  border-radius:10px;
+  color:#fff;
+}
+
+.form-grid textarea{
+  min-height:120px;
+}
+
+.form-grid button{
+  padding:15px;
+  background:#e50914;
+  border:none;
+  border-radius:10px;
+  color:#fff;
+  cursor:pointer;
+}
+
+.admin-card{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  margin-top:20px;
+}
+
+.admin-card img{
+  width:90px;
+  height:130px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.admin-card button{
+  margin-left:auto;
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:red;
+  color:#fff;
+  cursor:pointer;
+}
+
 /* RESPONSIVO */
 
 @media(max-width:900px){
@@ -266,6 +368,10 @@ body{
 
   .details-overlay h1{
     font-size:45px;
+  }
+
+  .admin-box{
+    width:90%;
   }
 
 }
